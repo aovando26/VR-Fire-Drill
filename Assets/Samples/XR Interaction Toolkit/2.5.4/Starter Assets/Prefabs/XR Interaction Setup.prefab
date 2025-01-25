@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9100400120944187694}
   - component: {fileID: 7576682853621193932}
   - component: {fileID: 3990890571365074879}
+  - component: {fileID: 1003269145715012981}
   m_Layer: 5
   m_Name: TimerCanvas
   m_TagString: Untagged
@@ -116,12 +117,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 0
-  m_CheckFor2DOcclusion: 0
+  m_CheckFor2DOcclusion: 1
   m_CheckFor3DOcclusion: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RaycastTriggerInteraction: 1
+--- !u!114 &1003269145715012981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43969996463820908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ecfedb5c6b59774b8013389f33f3ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 4807140731294299662}
 --- !u!1 &3127728406573987378
 GameObject:
   m_ObjectHideFlags: 0
