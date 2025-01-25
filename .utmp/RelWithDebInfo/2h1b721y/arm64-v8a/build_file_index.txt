@@ -1,0 +1,2 @@
+/Volumes/AIBSSD/VR-Fire-Drill/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/CMakeLists.txt
+/Volumes/AIBSSD/VR-Fire-Drill/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/CMakeLists.txt
