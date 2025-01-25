@@ -18,7 +18,7 @@ public class AnimateHandController : MonoBehaviour
         handAnimator = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void Update() 
     {
         AnimatorGrip();
         AnimateTrigger();
