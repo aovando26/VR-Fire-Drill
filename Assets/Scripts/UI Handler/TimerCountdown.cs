@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class TimerCountdown : MonoBehaviour
 {
-
-    public float timerCountdown = 120f;
+    public GameObject bar;
+    public float timerCountdown;
 
     private void Update()
     {
@@ -12,14 +12,20 @@ public class TimerCountdown : MonoBehaviour
         {
             timerCountdown -= Time.deltaTime;
         }
-
         else if (timerCountdown < 0)
         {
-            timerText.text = "End Game";
+            timerText.text = "Time's up!";
         }
 
         int minutes = Mathf.FloorToInt(timerCountdown / 60);
         int seconds = Mathf.FloorToInt(timerCountdown % 60);
+        
+        LeanTween.scaleX(bar, timerCountdown / 300, 0.1f).setOnComplete(() =>
+        {
+            LeanTween.delayedCall(3.5f, () => {
+                GameManager.Instance.GameOver();
+            }); 
+        });
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
