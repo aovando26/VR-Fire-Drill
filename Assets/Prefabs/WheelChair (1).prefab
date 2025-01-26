@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de0106e15c18cc448bc41d99d94f3dc2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.37
+      value: -1.16
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de0106e15c18cc448bc41d99d94f3dc2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.038
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: de0106e15c18cc448bc41d99d94f3dc2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -71,52 +71,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -7239936562395771347, guid: de0106e15c18cc448bc41d99d94f3dc2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6673556293430054062}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de0106e15c18cc448bc41d99d94f3dc2, type: 3}
---- !u!1 &7420068965936974733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7239936562395771347, guid: de0106e15c18cc448bc41d99d94f3dc2, type: 3}
-  m_PrefabInstance: {fileID: 9043216401151247776}
-  m_PrefabAsset: {fileID: 0}
---- !u!146 &6673556293430054062
-WheelCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7420068965936974733}
-  serializedVersion: 2
-  m_Center: {x: 0, y: 0, z: 0}
-  m_Radius: 10
-  m_SuspensionSpring:
-    spring: 35000
-    damper: 4500
-    targetPosition: 0.5
-  m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 0
-  m_Mass: 5
-  m_WheelDampingRate: 0.25
-  m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
-  m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
-    m_AsymptoteValue: 0.75
-    m_Stiffness: 1
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_Enabled: 1
-  m_ProvidesContacts: 0

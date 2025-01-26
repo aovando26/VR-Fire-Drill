@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4882488892507408}
   - component: {fileID: 33325235914129008}
   - component: {fileID: 23749083013370596}
-  - component: {fileID: 3889502251979707062}
-  - component: {fileID: 781013027455170472}
   - component: {fileID: 7994752143525385929}
+  - component: {fileID: 4337614222149704405}
+  - component: {fileID: 781013027455170472}
   m_Layer: 0
   m_Name: SM_Generic_TreeDead_01
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,7 +89,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &3889502251979707062
+--- !u!65 &7994752143525385929
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839111652244008}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.559789, y: 5.186723, z: 0.5646697}
+  m_Center: {x: -0.08341894, y: 2.55631, z: 0.0069463253}
+--- !u!54 &4337614222149704405
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,24 +149,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd974c2c9f7deaa4b89539bab2a3e056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &7994752143525385929
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839111652244008}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.559789, y: 5.237154, z: 0.5646697}
-  m_Center: {x: -0.083418936, y: 2.5310948, z: 0.0069463253}
