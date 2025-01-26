@@ -1,16 +1,25 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+class QueuedAudio
+{
+   public AudioSource Source { get; set; }
+   public float Delay { get; set; }
+}
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public Toggle[] checklistItems;
     public GameObject pauseMenu;
-    //public AudioSource[] playerAudioSources;
-    //public AudioSource[] npcAudioSources;
+    public AudioSource[] playerAudioSources;
+    public AudioSource[] npcAudioSources;
     public Camera mainCamera;
     int debrisCount = 0;
+    bool isPlayingAudio = false;
+    readonly Queue<QueuedAudio> audioQueue = new();
 
     private void Awake()
     {
@@ -75,6 +84,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void CheckItem(int index)
+    {
+        checklistItems[index].isOn = true;
+    }
+
     public void OpenPauseMenu()
     {
         bool isActive = true;
@@ -96,18 +110,47 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CheckItem(int index)
+    public void PlayPlayerAudio(int index, float delay = 0)
     {
-        checklistItems[index].isOn = true;
+        audioQueue.Enqueue(new QueuedAudio { 
+            Source = playerAudioSources[index],
+            Delay = delay
+        });
+        
+        if (!isPlayingAudio)
+        {
+            StartCoroutine(PlayAudioSequentially());
+        }
     }
 
-    //public void PlayPlayerAudio(int index)
-    //{
-    //    playerAudioSources[index].Play();
-    //}
+    public void PlayNPCAudio(int index, float delay = 0) 
+        {
+        audioQueue.Enqueue(new QueuedAudio {
+            Source = npcAudioSources[index],
+            Delay = delay
+        });
 
-    //public void PlayNPCAudio(int index)
-    //{
-    //    npcAudioSources[index].Play();
-    //}
+        if (!isPlayingAudio)
+        {
+            StartCoroutine(PlayAudioSequentially());
+        }
+    }
+
+    private IEnumerator PlayAudioSequentially()
+        {
+        isPlayingAudio = true;
+        
+        while (audioQueue.Count > 0)
+        {
+            QueuedAudio current = audioQueue.Dequeue();
+            if (current.Delay > 0)
+            {
+                yield return new WaitForSeconds(current.Delay);
+            }
+            current.Source.Play();
+            yield return new WaitForSeconds(current.Source.clip.length);
+        }
+        
+        isPlayingAudio = false;
+    }       
 }
