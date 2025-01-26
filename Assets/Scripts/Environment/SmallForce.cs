@@ -7,6 +7,10 @@ public class SmallForce : MonoBehaviour
     public Vector3 forceDirection = Vector3.forward;
     public void ObjectFall()
     {
+        //AudioSource audioSource = GetComponent<AudioSource>();
+
+        //audioSource.Play();
+
         rb = GetComponent<Rigidbody>();
         rb.AddForce(forceDirection.normalized * -forceMagnitude, ForceMode.Impulse);
     }
