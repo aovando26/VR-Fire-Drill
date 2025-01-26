@@ -4,7 +4,7 @@ public class TriggerAnim : MonoBehaviour
 {
     // Reference to the Animator component
     public Animator animator;
-    public bool rollingnWheelchair = false; 
+    public bool rollingnWheelchair = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Backpack") && !rollingnWheelchair)
@@ -13,7 +13,7 @@ public class TriggerAnim : MonoBehaviour
 
             // Trigger the sitting_rubbing animation
             animator.SetTrigger("still_wheelchair");
-            rollingnWheelchair = true; 
+            rollingnWheelchair = true;
         }
     }
 }

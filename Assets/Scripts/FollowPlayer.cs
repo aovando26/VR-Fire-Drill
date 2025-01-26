@@ -19,10 +19,14 @@ public class FollowPlayer : MonoBehaviour
         // Only follow the player if rollingnWheelchair is true
         if (triggerAnim != null && triggerAnim.rollingnWheelchair)
         {
-            // Smoothly move towards the followPlayer's position
+            // Decrease the y position by 1
+            Vector3 targetPosition = followPlayer.position;
+            targetPosition.y -= 1; // Decrease y by 1
+
+            // Smoothly move towards the new target position
             transform.position = Vector3.MoveTowards(
                 transform.position,
-                followPlayer.position,
+                targetPosition,
                 speed * Time.deltaTime
             );
         }
