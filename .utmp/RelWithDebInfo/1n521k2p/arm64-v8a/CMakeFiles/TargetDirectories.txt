@@ -1,0 +1,5 @@
+C:/Users/aoaov/dev/Unity Projects/VR/VR-Fire-Drill/.utmp/RelWithDebInfo/1n521k2p/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/aoaov/dev/Unity Projects/VR/VR-Fire-Drill/.utmp/RelWithDebInfo/1n521k2p/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/aoaov/dev/Unity Projects/VR/VR-Fire-Drill/.utmp/RelWithDebInfo/1n521k2p/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/aoaov/dev/Unity Projects/VR/VR-Fire-Drill/.utmp/RelWithDebInfo/1n521k2p/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/aoaov/dev/Unity Projects/VR/VR-Fire-Drill/.utmp/RelWithDebInfo/1n521k2p/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

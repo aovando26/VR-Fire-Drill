@@ -3,11 +3,15 @@ using UnityEngine;
 public class SmallForce : MonoBehaviour
 {
     private Rigidbody rb;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    public float forceMagnitude = 1.0f;
+    public Vector3 forceDirection = Vector3.forward;
     public void ObjectFall()
     {
+        //AudioSource audioSource = GetComponent<AudioSource>();
+
+        //audioSource.Play();
+
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.right * 1.0f, ForceMode.Impulse);
+        rb.AddForce(forceDirection.normalized * -forceMagnitude, ForceMode.Impulse);
     }
 }
