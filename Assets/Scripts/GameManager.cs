@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     //public AudioSource[] playerAudioSources;
     //public AudioSource[] npcAudioSources;
     public Camera mainCamera;
+    int debrisCount = 0;
 
     private void Awake()
     {
@@ -62,6 +64,15 @@ public class GameManager : MonoBehaviour
             mainCamera.backgroundColor = new Color(0, 0, 0, value);
         });
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public void CheckDebris()
+    {
+        debrisCount++;
+        if (debrisCount == 2)
+        {
+            CheckItem(2);
+        }
     }
 
     public void OpenPauseMenu()
