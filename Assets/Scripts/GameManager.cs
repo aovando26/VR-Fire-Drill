@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     int debrisCount = 0;
     bool isPlayingAudio = false;
     readonly Queue<QueuedAudio> audioQueue = new();
+    public AudioSource npcAudioSource;
+    public AudioSource playerAudioSource;
 
     private void Awake()
     {
@@ -40,6 +42,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        playerAudioSource.PlayDelayed(3.5f);
+        npcAudioSource.PlayDelayed(5.5f);
     }
 
     void Update()
