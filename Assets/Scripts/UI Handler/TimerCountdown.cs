@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +15,7 @@ public class TimerCountdown : MonoBehaviour
         else if (timerCountdown <= 0)
         {
             timerText.text = "Time's up!";
-            StartCoroutine(DelayedGameOver(3.5f));
+            GameManager.Instance.GameOver();
         }
 
         int minutes = Mathf.FloorToInt(timerCountdown / 60);
@@ -31,11 +30,5 @@ public class TimerCountdown : MonoBehaviour
     public void StartTimer()
     {
         gameObject.SetActive(true);
-    }
-
-    private IEnumerator DelayedGameOver(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        GameManager.Instance.GameOver();
     }
 }

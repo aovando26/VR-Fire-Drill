@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +6,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public Toggle[] checklistItems;
     public GameObject pauseMenu;
+    public AudioSource[] playerAudioSources;
+    public AudioSource[] npcAudioSources;
+    public Camera mainCamera;
 
     private void Awake()
     {
@@ -14,6 +16,13 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            mainCamera = Camera.main;
+
+            // Fade camera from black to clear
+            LeanTween.value(mainCamera.gameObject, 1, 0, 3).setOnUpdate((float value) =>
+            {
+                mainCamera.backgroundColor = new Color(0, 0, 0, value);
+            });
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -41,12 +50,17 @@ public class GameManager : MonoBehaviour
 
         if (allItemsChecked)
         {
-            StartCoroutine(DelayedGameOver(3.5f));
+            GameOver();
         }
     }
 
     public void GameOver()
     {
+        // Fade camera from clear to black
+        LeanTween.value(mainCamera.gameObject, 0, 1, 3.5f).setOnUpdate((float value) =>
+        {
+            mainCamera.backgroundColor = new Color(0, 0, 0, value);
+        });
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
@@ -76,9 +90,13 @@ public class GameManager : MonoBehaviour
         checklistItems[index].isOn = true;
     }
 
-    private IEnumerator DelayedGameOver(float delay)
+    public void PlayPlayerAudio(int index)
     {
-        yield return new WaitForSeconds(delay);
-        GameOver();
+        playerAudioSources[index].Play();
+    }
+
+    public void PlayNPCAudio(int index)
+    {
+        npcAudioSources[index].Play();
     }
 }
