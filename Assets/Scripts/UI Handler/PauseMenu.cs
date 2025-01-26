@@ -2,11 +2,7 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-  public GameObject pauseMenu;
-
-  void Start() {
-      Time.timeScale = 0;
-  }
+    public GameObject pauseMenu;
 
     public void Resume()
     {
