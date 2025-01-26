@@ -5,13 +5,18 @@ public class TriggerZone : MonoBehaviour
 
     public SmallForce smallForce;
     public AudioSource audioSource;
+    private bool activeTrigger = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (audioSource != null)
+        if (!activeTrigger)
         {
-            audioSource.Play();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
+            smallForce.ObjectFall();
+            activeTrigger = true;
         }
-        smallForce.ObjectFall();
     }
 }
