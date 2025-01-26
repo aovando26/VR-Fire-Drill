@@ -7,6 +7,6 @@ public class SmallForce : MonoBehaviour
     public void ObjectFall()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.right * 1.5f, ForceMode.Impulse);
+        rb.AddForce(Vector3.forward * -1.0f, ForceMode.Impulse);
     }
 }
