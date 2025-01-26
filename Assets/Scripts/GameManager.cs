@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public Toggle[] checklistItems;
     public GameObject pauseMenu;
-    public AudioSource[] playerAudioSources;
-    public AudioSource[] npcAudioSources;
+    //public AudioSource[] playerAudioSources;
+    //public AudioSource[] npcAudioSources;
     public Camera mainCamera;
     int debrisCount = 0;
 
@@ -101,13 +101,13 @@ public class GameManager : MonoBehaviour
         checklistItems[index].isOn = true;
     }
 
-    public void PlayPlayerAudio(int index)
-    {
-        playerAudioSources[index].Play();
-    }
+    //public void PlayPlayerAudio(int index)
+    //{
+    //    playerAudioSources[index].Play();
+    //}
 
-    public void PlayNPCAudio(int index)
-    {
-        npcAudioSources[index].Play();
-    }
+    //public void PlayNPCAudio(int index)
+    //{
+    //    npcAudioSources[index].Play();
+    //}
 }
