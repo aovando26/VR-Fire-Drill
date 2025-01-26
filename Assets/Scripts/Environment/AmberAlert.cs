@@ -8,8 +8,9 @@ public class AmberAlert : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(VibratePhone(5.0f)); 
+        StartCoroutine(VibratePhone(6.0f)); 
         audioSource = GetComponent<AudioSource>();
+        StartCoroutine(PlayNextAudio(4.5f));
     }
 
     IEnumerator VibratePhone(float delay)
@@ -20,5 +21,12 @@ public class AmberAlert : MonoBehaviour
 
         yield return new WaitWhile(() => audioSource.isPlaying);
         timerCountdown.StartTimer();
+    }
+
+    IEnumerator PlayNextAudio(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GameManager.Instance.PlayPlayerAudio(1);
+        GameManager.Instance.PlayNPCAudio(0);
     }
 }
