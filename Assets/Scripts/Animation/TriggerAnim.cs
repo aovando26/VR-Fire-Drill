@@ -11,7 +11,7 @@ public class TriggerAnim : MonoBehaviour
         rollingWheelchair = false;
     }
     private string animClip = "still_wheelchair";
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Backpack") && !rollingWheelchair)
         {
