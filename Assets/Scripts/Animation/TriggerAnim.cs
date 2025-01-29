@@ -5,7 +5,7 @@ public class TriggerAnim : MonoBehaviour
     // Reference to the Animator component
     public Animator animator;
     public bool rollingWheelchair;
-
+    public SelfDestroy selfDestroy;
     private void Start()
     {
         rollingWheelchair = false;
@@ -13,7 +13,7 @@ public class TriggerAnim : MonoBehaviour
     private string animClip = "still_wheelchair";
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Backpack") && !rollingWheelchair)
+        if (selfDestroy.objectDestroyed && !rollingWheelchair)
         {
             Debug.Log("Player has backpack");
             Debug.Log("Trigger activated: Switching to running animation");
