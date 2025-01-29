@@ -8,31 +8,27 @@ public class MoveOnWayPoints : MonoBehaviour
     public float speed = 2f;
     int index = 0;
     public TriggerAnim triggerAnim;
-    private bool isMoving = false;
     private void Update()
     {
 
         if (triggerAnim.rollingWheelchair)
         {
-            isMoving = true;
+            MoveToNextWaypoint();
         }
     }
 
     private void MoveToNextWaypoint()
     {
-        if (isMoving)
+        Vector3 destination = waypoints[index].transform.position;
+        Vector3 newPos = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+        transform.position = newPos;
+
+        float distance = Vector3.Distance(transform.position, destination);
+
+        if (distance <= 0.5f)
         {
-            Vector3 destination = waypoints[index].transform.position;
-            Vector3 newPos = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
-            transform.position = newPos;
-
-            float distance = Vector3.Distance(transform.position, destination);
-
-            if (distance <= 0.5f)
-            {
-                index++;
-                return;
-            }
+            index++;
+            return;
         }
     }
 }

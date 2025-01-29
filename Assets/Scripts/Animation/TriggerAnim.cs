@@ -4,7 +4,12 @@ public class TriggerAnim : MonoBehaviour
 {
     // Reference to the Animator component
     public Animator animator;
-    public bool rollingWheelchair = false;
+    public bool rollingWheelchair;
+
+    private void Start()
+    {
+        rollingWheelchair = false;
+    }
     private string animClip = "still_wheelchair";
     private void OnTriggerEnter(Collider other)
     {
