@@ -1,10 +1,19 @@
 # ninja log v5
 39	711	7598373846555376	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	62bea23df8b67f6b
+93	837	7598373848047021	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	f27c3432585ec628
 14	714	7598373846684341	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	a6ece2f818877cf6
 51	720	7598373846855939	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	80b49968bb1e803e
-79	817	7598373847377068	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	969a82b12ab43178
 27	818	7598373847805603	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	69321fc33ccad55e
-93	837	7598373848047021	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	f27c3432585ec628
+79	817	7598373847377068	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	969a82b12ab43178
+1027	1132	7598373850938959	C:/Users/aoaov/dev/Unity Projects/VR/VR-Fire-Drill/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1n521k2p/obj/arm64-v8a/libgame.so	f710b9659ea49211
 66	1025	7598373849807298	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5bc5165424688587
 1	1027	7598373849895403	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	fe76213f7653d8fd
-1027	1132	7598373850938959	C:/Users/aoaov/dev/Unity Projects/VR/VR-Fire-Drill/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1n521k2p/obj/arm64-v8a/libgame.so	f710b9659ea49211
+18	745	7598385125158892	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	62bea23df8b67f6b
+69	746	7598385125158892	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	80b49968bb1e803e
+2	747	7598385125214441	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	a6ece2f818877cf6
+98	772	7598385125651911	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	969a82b12ab43178
+111	838	7598385126282907	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	f27c3432585ec628
+57	869	7598385126478747	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	69321fc33ccad55e
+82	1023	7598385128183012	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5bc5165424688587
+44	1087	7598385128814666	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	fe76213f7653d8fd
+1087	1210	7598385130002935	C:/Users/aoaov/dev/Unity Projects/VR/VR-Fire-Drill/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/1n521k2p/obj/arm64-v8a/libgame.so	f710b9659ea49211
