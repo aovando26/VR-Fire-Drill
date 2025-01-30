@@ -3,12 +3,27 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
     public AudioClip[] clipsToPlay;
 
     private AudioSource audioSource;
     private float audioLength;
 
-    private void Start()
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+        private void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
 

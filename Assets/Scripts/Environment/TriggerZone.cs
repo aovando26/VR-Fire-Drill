@@ -6,6 +6,8 @@ public class TriggerZone : MonoBehaviour
     public SmallForce smallForce;
     public AudioSource audioSource;
     private bool activeTrigger = false;
+    public AudioClip doorClip;
+    public AudioClip exitClip;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,10 +15,12 @@ public class TriggerZone : MonoBehaviour
         {
             if (audioSource != null)
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(doorClip, 1.0f);
             }
             smallForce.ObjectFall();
             activeTrigger = true;
+
+            audioSource.PlayOneShot(exitClip, 1.0f);
         }
     }
 }
