@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Last Audio is Playing");
+        //Debug.Log("Last Audio is Playing");
     }
 
     public void PlayLastAudioLines()

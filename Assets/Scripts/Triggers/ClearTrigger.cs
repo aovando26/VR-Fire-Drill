@@ -2,14 +2,25 @@ using UnityEngine;
 
 public class ClearTrigger : MonoBehaviour
 {
-    public AudioSource audioSource;
-    private bool activeTrigger = false;
+    private AudioSource audioSource;
+    private bool activeTrigger;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        activeTrigger = false;
+        //if (audioSource == null)
+        //{
+        //    Debug.LogError("No AudioSource found on " + gameObject.name);
+        //}
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!activeTrigger)
+        if (other.gameObject.CompareTag("Player") && audioSource != null)
         {
             audioSource.Play();
+            activeTrigger = true;
         }
     }
 }
