@@ -6,7 +6,7 @@ public class MoveOnWayPoints : MonoBehaviour
     public List<GameObject> waypoints;
     public float speed = 2f;
     private int index = 0;
-    public TriggerAnim triggerAnim;
+    public AnimTrigger triggerAnim;
 
     private void Update()
     {

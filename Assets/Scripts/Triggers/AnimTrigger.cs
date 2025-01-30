@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TriggerAnim : MonoBehaviour
+public class AnimTrigger : MonoBehaviour
 {
     // Reference to the Animator component
     public Animator animator;

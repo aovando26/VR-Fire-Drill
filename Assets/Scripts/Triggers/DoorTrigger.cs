@@ -1,13 +1,11 @@
 using UnityEngine;
 
-public class TriggerZone : MonoBehaviour
+public class DoorTrigger : MonoBehaviour
 {
 
     public SmallForce smallForce;
     public AudioSource audioSource;
     private bool activeTrigger = false;
-    public AudioClip doorClip;
-    public AudioClip exitClip;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,12 +13,13 @@ public class TriggerZone : MonoBehaviour
         {
             if (audioSource != null)
             {
-                audioSource.PlayOneShot(doorClip, 1.0f);
+                audioSource.Play();
             }
+
             smallForce.ObjectFall();
             activeTrigger = true;
 
-            audioSource.PlayOneShot(exitClip, 1.0f);
+            AudioManager.Instance.PlayLastAudioLines();
         }
     }
 }
