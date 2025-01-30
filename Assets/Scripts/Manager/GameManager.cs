@@ -14,14 +14,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     public Toggle[] checklistItems;
     public GameObject pauseMenu;
-    public AudioSource[] playerAudioSources;
-    public AudioSource[] npcAudioSources;
     public Camera mainCamera;
     int debrisCount = 0;
-    bool isPlayingAudio = false;
-    readonly Queue<QueuedAudio> audioQueue = new();
-    public AudioSource npcAudioSource;
-    public AudioSource playerAudioSource;
 
     private void Awake()
     {
@@ -42,12 +36,6 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
-        playerAudioSource.PlayDelayed(3.5f);
-        npcAudioSource.PlayDelayed(5.5f);
     }
 
     void Update()
@@ -116,49 +104,5 @@ public class GameManager : MonoBehaviour
             pauseMenu.SetActive(false);
             Time.timeScale = 1;
         }
-    }
-
-    public void PlayPlayerAudio(int index, float delay = 0)
-    {
-        audioQueue.Enqueue(new QueuedAudio { 
-            Source = playerAudioSources[index],
-            Delay = delay
-        });
-        
-        if (!isPlayingAudio)
-        {
-            StartCoroutine(PlayAudioSequentially());
-        }
-    }
-
-    public void PlayNPCAudio(int index, float delay = 0) 
-        {
-        audioQueue.Enqueue(new QueuedAudio {
-            Source = npcAudioSources[index],
-            Delay = delay
-        });
-
-        if (!isPlayingAudio)
-        {
-            StartCoroutine(PlayAudioSequentially());
-        }
-    }
-
-    private IEnumerator PlayAudioSequentially()
-        {
-        isPlayingAudio = true;
-        
-        while (audioQueue.Count > 0)
-        {
-            QueuedAudio current = audioQueue.Dequeue();
-            if (current.Delay > 0)
-            {
-                yield return new WaitForSeconds(current.Delay);
-            }
-            current.Source.Play();
-            yield return new WaitForSeconds(current.Source.clip.length);
-        }
-        
-        isPlayingAudio = false;
-    }       
+    }  
 }
