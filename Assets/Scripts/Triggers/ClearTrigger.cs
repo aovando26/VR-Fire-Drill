@@ -17,7 +17,7 @@ public class ClearTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && audioSource != null)
+        if (other.gameObject.CompareTag("Player") && audioSource != null && !activeTrigger)
         {
             audioSource.Play();
             activeTrigger = true;
