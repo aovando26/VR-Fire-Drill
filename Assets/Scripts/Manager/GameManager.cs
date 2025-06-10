@@ -1,108 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-
-class QueuedAudio
-{
-   public AudioSource Source { get; set; }
-   public float Delay { get; set; }
-}
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
-{
-    public static GameManager Instance { get; private set; }
-    public Toggle[] checklistItems;
-    public GameObject pauseMenu;
-    public Camera mainCamera;
-    int debrisCount = 0;
+{ 
+    public static GameManager Instance;
+    public GameObject[] checklistItems;
 
     private void Awake()
     {
-        // Singleton pattern
-        if (Instance == null)
-        {
-            Instance = this;
-            mainCamera = Camera.main;
-
-            // Fade camera from black to clear
-            LeanTween.value(mainCamera.gameObject, 1, 0, 3).setOnUpdate((float value) =>
-            {
-                mainCamera.backgroundColor = new Color(0, 0, 0, value);
-            });
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (Instance != null)
         {
             Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
-
-    void Update()
-    {
-        bool allItemsChecked = false;
-
-        foreach (Toggle item in checklistItems)
-        {
-            if (item.isOn)
-            {
-                allItemsChecked = true;
-            }
-            else
-            {
-                allItemsChecked = false;
-                break;
-            }
-        }
-
-        if (allItemsChecked)
-        {
-            GameOver();
-        }
-    }
-
     public void GameOver()
     {
-        // Fade camera from clear to black
-        LeanTween.value(mainCamera.gameObject, 0, 1, 3.5f).setOnUpdate((float value) =>
-        {
-            mainCamera.backgroundColor = new Color(0, 0, 0, value);
-        });
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
-
-    public void CheckDebris()
-    {
-        debrisCount++;
-        if (debrisCount == 2)
-        {
-            CheckItem(2);
-        }
-    }
-
-    public void CheckItem(int index)
-    {
-        checklistItems[index].isOn = true;
-    }
-
-    public void OpenPauseMenu()
-    {
-        bool isActive = true;
-
-        if (pauseMenu.activeSelf)
-        {
-            isActive = false;
-        }
-        
-        if (isActive)
-        {
-            Time.timeScale = 0;
-            pauseMenu.SetActive(true);
-        }
-        else
-        {
-            pauseMenu.SetActive(false);
-            Time.timeScale = 1;
-        }
-    }  
 }
