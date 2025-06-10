@@ -4,27 +4,36 @@ using UnityEngine.Audio;
 public class AnimTrigger : MonoBehaviour
 {
     private AudioSource audioSource;
-    // Reference to the Animator component
     public Animator animator;
+
+    private string animClip = "still_wheelchair";
+
+    public GameObject requiredItem;
+
     public bool rollingWheelchair;
-    public SelfDestroy selfDestroy;
 
     private void Start()
     {
         rollingWheelchair = false;
         audioSource = GetComponent<AudioSource>();
+        GameManager.Instance.onAllItemsCollected.AddListener(OnAllItemsCollected);
     }
-    private string animClip = "still_wheelchair";
-    private void OnTriggerStay(Collider other)
+
+    private void OnAllItemsCollected()
     {
-        if (selfDestroy.objectDestroyed && !rollingWheelchair && other.gameObject.CompareTag("Player")) 
+        Debug.Log("Event received by AnimTrigger! Playing animation.");
+
+        // event itself is the trigger.
+        animator.Play(animClip);
+        rollingWheelchair = true;
+        audioSource.Play();
+    }
+
+    private void OnDestroy()
+    {
+        if (GameManager.Instance != null)
         {
-            Debug.Log("Player has backpack");
-            Debug.Log("Trigger activated: Switching to running animation");
-            // Trigger the sitting_rubbing animation
-            animator.Play(animClip);
-            rollingWheelchair = true;
-            audioSource.Play();
+            GameManager.Instance.onAllItemsCollected.RemoveListener(OnAllItemsCollected);
         }
     }
 }

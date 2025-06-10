@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class SceneTransition : MonoBehaviour
 {
     private string preMain = "Pre-Main";
+    //private string mainScene = "Main";
+
     public GameObject visualCueCanvas;
 
     //private void Start()
