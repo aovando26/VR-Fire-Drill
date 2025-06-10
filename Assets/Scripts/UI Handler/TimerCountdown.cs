@@ -7,7 +7,7 @@ public class TimerCountdown : MonoBehaviour
     public Slider timerSlider;
     public TextMeshProUGUI timerText;
 
-    [SerializeField] private float totalTime = 60f;
+    [SerializeField] private float totalTime = 300f;
     private float currentTime;
 
     private void Start()
